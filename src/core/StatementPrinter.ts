@@ -7,11 +7,19 @@ export class StatementPrinter{
     constructor(private readonly console: Console){}
 
     print(transactions: Transaction[]){
-        let runningBalance = 0;
+        this.printHeaderLine();
+        this.printStatementLines(transactions);
+    }
+
+    private printHeaderLine() {
         this.console.log(this.header);
-        transactions.forEach(t => {
-            runningBalance += t.getAmount();
-            this.console.log(this.formatStatementLine(t, runningBalance));
+    }
+
+    private printStatementLines(transactions: Transaction[]) {
+        let runningBalance = 0;
+        transactions.forEach(transaction => {
+            runningBalance += transaction.getAmount();
+            this.console.log(this.formatStatementLine(transaction, runningBalance));
         });
     }
 
