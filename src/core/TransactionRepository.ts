@@ -1,4 +1,5 @@
-import { Transaction } from "./StatementPrinter";
+import { Transaction } from "./Transaction";
+
 
 export class TransactionRepository{
     addDeposit(amount:number){

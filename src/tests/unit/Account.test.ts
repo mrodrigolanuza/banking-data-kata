@@ -1,5 +1,6 @@
 import { Account } from "../../core/Account";
-import { StatementPrinter, Transaction } from "../../core/StatementPrinter";
+import { StatementPrinter } from "../../core/StatementPrinter";
+import { Transaction } from "../../core/Transaction";
 import { TransactionRepository } from "../../core/TransactionRepository";
 
 
