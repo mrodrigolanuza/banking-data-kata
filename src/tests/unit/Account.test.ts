@@ -1,4 +1,5 @@
 import { Account } from "../../core/Account";
+import { Clock } from "../../core/Clock";
 import { StatementPrinter } from "../../core/StatementPrinter";
 import { Transaction } from "../../core/Transaction";
 import { TransactionRepository } from "../../core/TransactionRepository";
@@ -6,7 +7,7 @@ import { TransactionRepository } from "../../core/TransactionRepository";
 
 
 describe('The account', () => {
-    const repository = new TransactionRepository();
+    const repository = new TransactionRepository(new Clock());
     const statementPrinter = new StatementPrinter();
     const account = new Account(repository, statementPrinter);
     const addDepositySpy = jest.spyOn(repository, 'addDeposit');
@@ -24,7 +25,7 @@ describe('The account', () => {
         expect(withdrawDepositySpy).toHaveBeenCalledWith(200);
     });
     it('prints a statement throughout the statement printer', () =>{
-        const transactions = [new Transaction(''), new Transaction('')];
+        const transactions = [new Transaction('', 0), new Transaction('', 0)];
         repository.allTransactions = () => transactions;
 
         account.printStatement();

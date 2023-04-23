@@ -1,3 +1,3 @@
 export class Transaction{
-    constructor(private readonly transaction:string){}
+    constructor(private readonly date:string, private readonly amount:number){}
 }
