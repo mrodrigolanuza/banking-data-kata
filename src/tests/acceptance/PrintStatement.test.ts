@@ -8,7 +8,7 @@ describe('Print Statement', () => {
     //Importante evitar hacer mock de artefactos y librerías que no son propias. 
     //Para ello en este caso, hacemos un wrapper sobre la consola de salida estándar y así crear un mock sobre éste.
     const console = new Console();
-    const statementPrinter = new StatementPrinter();
+    const statementPrinter = new StatementPrinter(console);
     const consoleSpy = jest.spyOn(console, 'log');
     const repository = new TransactionRepository(new Clock());
     const account = new Account(repository, statementPrinter);

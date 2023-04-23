@@ -1,5 +1,6 @@
 import { Account } from "../../core/Account";
 import { Clock } from "../../core/Clock";
+import { Console } from "../../core/Console";
 import { StatementPrinter } from "../../core/StatementPrinter";
 import { Transaction } from "../../core/Transaction";
 import { TransactionRepository } from "../../core/TransactionRepository";
@@ -8,7 +9,8 @@ import { TransactionRepository } from "../../core/TransactionRepository";
 
 describe('The account', () => {
     const repository = new TransactionRepository(new Clock());
-    const statementPrinter = new StatementPrinter();
+    const console = new Console();
+    const statementPrinter = new StatementPrinter(console);
     const account = new Account(repository, statementPrinter);
     const addDepositySpy = jest.spyOn(repository, 'addDeposit');
     const withdrawDepositySpy = jest.spyOn(repository, 'withdrawDeposit');
