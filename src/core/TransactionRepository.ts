@@ -8,7 +8,8 @@ export class TransactionRepository{
     constructor(private readonly clock:Clock){}
     
     addDeposit(amount:number){
-        this.transactions.push(new Transaction(this.clock.getDateAsString(), amount));
+        const transaction = new Transaction(this.clock.getDateAsString(), amount);
+        this.transactions.push(transaction);
     }
     withdrawDeposit(amount:number){
 
