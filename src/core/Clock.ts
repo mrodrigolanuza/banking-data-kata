@@ -1,14 +1,9 @@
 export class Clock {
     getDateAsString(){
-        // const date = new Date();
-
-        // let day = date.getDate();
-        // let month = date.getMonth() + 1;
-        // let year = date.getFullYear();
-
-        // // This arrangement can be altered based on how we want the date's format to appear.
-        // let currentDate = `${day}-${month}-${year}`;
-        
-        return '';
+        const date = new Date();
+        let day = date.getDate().toString().padStart(2, "0");
+        let month = (date.getMonth() + 1).toString().padStart(2, "0");
+        let year = date.getFullYear();
+        return `${day}/${month}/${year}`;
     }
 }
