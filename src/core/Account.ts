@@ -1,8 +1,10 @@
+import { StatementPrinter } from "./StatementPrinter";
 import { TransactionRepository } from "./TransactionRepository";
 
 export class Account {
     
-    constructor(private repository: TransactionRepository){
+    constructor(private repository: TransactionRepository, 
+                private statementPrinter: StatementPrinter){
         
     }
     
@@ -13,6 +15,6 @@ export class Account {
         this.repository.withdrawDeposit(amount);
     }
     printStatement(){
-
+        this.statementPrinter.print(this.repository.allTransactions());
     }
 }

@@ -1,14 +1,16 @@
 import { Account } from "../../core/Account";
 import { Console } from "../../core/Console";
+import { StatementPrinter } from "../../core/StatementPrinter";
 import { TransactionRepository } from "../../core/TransactionRepository";
 
 describe('Print Statement', () => {
     //Importante evitar hacer mock de artefactos y librerías que no son propias. 
     //Para ello en este caso, hacemos un wrapper sobre la consola de salida estándar y así crear un mock sobre éste.
     const console = new Console();
+    const statementPrinter = new StatementPrinter();
     const consoleSpy = jest.spyOn(console, 'log');
     const repository = new TransactionRepository();
-    const account = new Account(repository);
+    const account = new Account(repository, statementPrinter);
     
     it('prints an account statement including the transaction made throughout the console', () =>{
         account.deposit(1000.00);
