@@ -1,9 +1,6 @@
 export class Clock {
     getDateAsString(){
         const date = new Date();
-        let day = date.getDate().toString().padStart(2, "0");
-        let month = (date.getMonth() + 1).toString().padStart(2, "0");
-        let year = date.getFullYear();
-        return `${day}/${month}/${year}`;
+        return date.toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'});
     }
 }
