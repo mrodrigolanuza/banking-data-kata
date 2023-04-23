@@ -34,7 +34,7 @@ describe('The Statement Printer', () => {
         
         expect(consoleSpy).toHaveBeenCalledWith('Date | Amount | Balance');
         expect(consoleSpy).toHaveBeenCalledWith('25/04/2023 | 1000.00 | 1000.00');
-        expect(consoleSpy).toHaveBeenCalledWith('25/04/2023 | -500.00 |  500.00');
-        expect(consoleSpy).toHaveBeenCalledWith('25/04/2023 | 2000.00 | 2500.00');
+        expect(consoleSpy).toHaveBeenCalledWith('26/04/2023 | -500.00 | 500.00');
+        expect(consoleSpy).toHaveBeenCalledWith('27/04/2023 | 2000.00 | 2500.00');
    });
 });

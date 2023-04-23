@@ -7,15 +7,12 @@ export class StatementPrinter{
     constructor(private readonly console: Console){}
 
     print(transactions: Transaction[]){
+        let runningBalance = 0;
         this.console.log(this.header);
-        
-        if(transactions.length > 0){
-            const transaction = transactions[0];    
-            let runningBalance = 0;
-            runningBalance += transaction.getAmount();
-            this.console.log(this.formatStatementLine(transaction, runningBalance));
-        }
-        
+        transactions.forEach(t => {
+            runningBalance += t.getAmount();
+            this.console.log(this.formatStatementLine(t, runningBalance));
+        });
     }
 
     private formatStatementLine(transaction: Transaction, runningBalance: number) {
