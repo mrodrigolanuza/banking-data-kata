@@ -13,7 +13,7 @@ export class StatementPrinter{
             const transaction = transactions[0];    
             let runningBalance = 0;
             runningBalance += transaction.getAmount();
-            this.formatStatementLine(transaction, runningBalance);
+            this.console.log(this.formatStatementLine(transaction, runningBalance));
         }
         
     }
@@ -21,6 +21,6 @@ export class StatementPrinter{
     private formatStatementLine(transaction: Transaction, runningBalance: number) {
         const formattedAmount = transaction.getAmount().toFixed(2);
         const formattedBalance = runningBalance.toFixed(2);
-        this.console.log(`${transaction.getDate()} | ${formattedAmount} | ${formattedBalance}`);
+        return `${transaction.getDate()} | ${formattedAmount} | ${formattedBalance}`;
     }
 }
