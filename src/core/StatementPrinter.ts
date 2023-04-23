@@ -8,6 +8,6 @@ export class StatementPrinter{
 
     print(transactions: Transaction[]){
         this.console.log(this.header);
-        // transactions.forEach(t => this.console.log(`${t.getDate()} | ${t.getAmount()} | 0`))
+        transactions.forEach(t => this.console.log(`${t.getDate()} | ${t.getAmount()} | 0`))
     }
 }
