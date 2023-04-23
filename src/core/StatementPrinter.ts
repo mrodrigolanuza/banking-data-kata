@@ -8,6 +8,19 @@ export class StatementPrinter{
 
     print(transactions: Transaction[]){
         this.console.log(this.header);
-        transactions.forEach(t => this.console.log(`${t.getDate()} | ${t.getAmount()} | 0`))
+        
+        if(transactions.length > 0){
+            const transaction = transactions[0];    
+            let runningBalance = 0;
+            runningBalance += transaction.getAmount();
+            this.formatStatementLine(transaction, runningBalance);
+        }
+        
+    }
+
+    private formatStatementLine(transaction: Transaction, runningBalance: number) {
+        const formattedAmount = transaction.getAmount().toFixed(2);
+        const formattedBalance = runningBalance.toFixed(2);
+        this.console.log(`${transaction.getDate()} | ${formattedAmount} | ${formattedBalance}`);
     }
 }
